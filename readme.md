@@ -65,9 +65,9 @@ Get the ``PARTUUID`` via ``sudo blkid /dev/sda1`` (adapt ``/dev/sdXX`` according
 # Telegram bot
 Use steps provided [here](https://www.flopy.es/crea-un-bot-de-telegram-para-tu-raspberry-ordenale-cosas-y-habla-con-ella-a-distancia/). Credits to [Marcos Matas/Flopy.es](https://www.flopy.es/).
 
-The bot / Python script eventually crashes / timeouts for me. Some people fix it with [this](https://github.com/eternnoir/pyTelegramBotAPI/issues/474#issuecomment-401703044), but that didn't work for me. The workaround I eventually found is to add a ``crontab`` action that checks wether the bot is running. If so, nothing happens. If the process has crashed, it starts the bot. This is checked every 15 minutes via ``crontab``, but adapt accordingly.
+The bot / Python script eventually crashes / timeouts for me. Some people fix it with [this](https://github.com/eternnoir/pyTelegramBotAPI/issues/474#issuecomment-401703044), but that didn't work for me. The workaround I eventually found is to add a ``crontab`` job that checks wether the bot is running. If so, nothing happens. If the process has crashed, it restarts the bot. This is checked every 15 minutes via ``crontab``, but adapt accordingly.
 
-Command is ``crontab -e``, entry is:
+Command for editing it is ``crontab -e``. The exact entry is:
 
 ``*/15 * * * *  pgrep python > /dev/null 2>&1 || python /home/pi/apps/pyTelegramBotAPI/Telegram_bot.py &``
 

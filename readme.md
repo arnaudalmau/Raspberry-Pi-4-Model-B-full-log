@@ -273,3 +273,6 @@ Code for my script is as follows:
   echo "Memory status:"
   echo "$(egrep --color 'Mem|Cache|Swap' /proc/meminfo)"
 ```
+## Performing a backup
+If you're like me and don't want to loose all your work because your microSD gets corrupted (sorry to bring the news to you, but it'll eventually happen), you definitely **should** perform a backup once in a while. After some research, my method is simple (yet maybe not the most efficient).
+(Working on it)
